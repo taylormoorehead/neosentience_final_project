@@ -1,5 +1,8 @@
-This repository contains code for generating a synthetic dataset, applying two alternative amplitude encoding strategies, training quantum support vector classifiers (QSVC), and comparing their performance across time and accuracy. The workflow begins by constructing a synthetic dataset with controllable structure, allowing the model to evaluate encoding methods under consistent conditions. The code then applies manual amplitude encoding and random amplitude encoding, producing two distinct quantum feature representations for the same data.
+**Overview**
+This repository supports an experiment dedicated to furthering neosentience.
 
-After encoding, the script trains separate QSVC models on each encoded dataset and evaluates their predictive performance using standard classification metrics. It also records and compares the temporal behavior of each pipeline, including encoding time and training/runtime cost. The results are visualized to highlight differences in predictive quality and computational efficiency.
+Everything starts with a clean synthetic dataset based on MIT's Moral Machine so both encoding pipelines get exactly the same input.
 
-Finally, the code derives the equation governing the hybrid encoding curve, using selected hybrid data points to fit and visualize an illustrative curve representing how performance transitions between the two encoding extremes. Plotting tools generate clear visualizations of this curve to help interpret how hybrid strategies may behave in practice and where potential performance optima might lie.
+We then apply manual amplitude encoding and random amplitude encoding, giving us two quantum-ready representations of the data. Each encoded dataset is then used to train its own QSVC model. We measure accuracy, precision, recall, and the time each encoding method takes. This gives a direct, side-by-side comparison of predictive performance and encoding cost.
+
+To help visualize the tradeoffs, the scripts generate plots showing both the empirical accuracy/time differences and an estimated accuracy–time frontier. This frontier is built by fitting a polynomial curve to hybrid encoding points.
